@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammad Joghataee — Machine Learning Scientist</title>
+  <meta name="description" content="Ph.D. candidate at Auburn University. Medical NLP, clinical notes, foundation models, and interpretable EHR models for rare infections and PTSD." />
+  <meta name="author" content="Mohammad Joghataee" />
+  <link rel="canonical" href="https://joghataee.me/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fffdf8;
+      --ink: #1b1712;
+      --muted: #5c564c;
+      --line: #e4dccf;
+      --accent: #b45309;
+      --accent-2: #1f4d46;
+      --soft: #f3e7d3;
+      --shadow: 0 18px 40px rgba(27, 23, 18, 0.07);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #fbe8c8 0%, transparent 55%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--accent-2); }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(244, 239, 230, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; gap: 16px; }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 650; font-size: 1.12rem; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .links { display: flex; gap: 20px; list-style: none; }
+    .links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 0.92rem; }
+    .links a:hover { color: var(--ink); }
+    .burger {
+      display: none; border: 1px solid var(--line); background: var(--paper);
+      border-radius: 10px; padding: 8px 10px; cursor: pointer;
+    }
+
+    .hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 44px; padding: 64px 0 36px; align-items: center; }
+    .kicker { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; }
+    .role { margin-top: 8px; font-size: 1.05rem; color: var(--muted); }
+    .lede { margin-top: 18px; max-width: 58ch; font-size: 1.05rem; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1px solid var(--line);
+      padding: 8px 12px; border-radius: 999px; text-decoration: none;
+      color: var(--ink); font-size: 0.86rem; font-weight: 500;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--ink); }
+
+    .portrait {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 22px; padding: 12px; box-shadow: var(--shadow);
+    }
+    .portrait img, .ph {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px;
+    }
+    .ph {
+      display: grid; place-items: center; text-align: center; padding: 20px;
+      background: linear-gradient(165deg, #1f4d46, #7c2d12 80%);
+      color: #fff8ee; font-family: Fraunces, serif;
+    }
+    .ph small { display: block; margin-top: 8px; font-family: "IBM Plex Sans", sans-serif; opacity: 0.85; }
+
+    section { padding: 22px 0 46px; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: 1.9rem; margin-bottom: 8px; }
+    .intro { color: var(--muted); max-width: 70ch; margin-bottom: 22px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 16px; padding: 20px; box-shadow: var(--shadow);
+    }
+    .card h3 { font-family: Fraunces, Georgia, serif; font-size: 1.15rem; margin: 6px 0 8px; }
+    .tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--soft); color: #9a3412; padding: 3px 8px; border-radius: 999px;
+    }
+
+    .pub { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .pub:last-child { border-bottom: 0; }
+    .venue { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 999px;
+    }
+
+    .gallery { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; }
+    .shot {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 16px; overflow: hidden; min-height: 220px;
+    }
+    .shot img, .shot .ph2 { width: 100%; height: 100%; min-height: 220px; object-fit: cover; }
+    .shot.tall { grid-row: span 2; min-height: 452px; }
+    .ph2 {
+      display: grid; place-items: center; text-align: center; padding: 16px;
+      background: #e8ddd0; color: #4a4338; font-size: 0.92rem;
+    }
+    .caption { padding: 10px 12px 14px; font-size: 0.88rem; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: 0.9rem; }
+    .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      .hero, .cards, .gallery { grid-template-columns: 1fr; }
+      .shot.tall { grid-row: auto; min-height: 260px; }
+      .links { display: none; }
+      .links.open {
+        display: flex; flex-direction: column; position: absolute; top: 58px; right: 18px;
+        background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+        padding: 14px 18px; box-shadow: var(--shadow);
+      }
+      .burger { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">Mohammad Joghataee</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">Menu</button>
+      <ul class="links" id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#life">Life</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <p class="kicker">Auburn University · Mayo Clinic collaboration</p>
+        <h1>Mohammad Joghataee</h1>
+        <p class="role">Ph.D. candidate in Computer Science · Machine Learning Scientist</p>
+        <p class="lede">
+          I build medical NLP and EHR models that have to survive clinician scrutiny, not only a test split —
+          summarizing notes, extracting evidence, and saying clearly what a model should not be trusted to do.
+        </p>
+        <div class="chips">
+          <a class="chip" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
+          <a class="chip" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="https://orcid.org/0000-0002-8849-4695" target="_blank" rel="noopener">ORCID</a>
+          <a class="chip" href="cv.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <!-- Drop your headshot at photos/me.jpg -->
+        <img src="photos/me.jpg" alt="Portrait of Mohammad Joghataee" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+        <div class="ph" style="display:none">Your photo<br /><small>Add photos/me.jpg</small></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <p class="intro">
+          I am a Ph.D. candidate in Computer Science and Software Engineering at Auburn University,
+          advised by Dr. Ashish Gupta and Dr. Xiao Qin. I also completed an M.S. in Management of
+          Information Systems at the Harbert College of Business. My work sits between messy hospital
+          text, foundation models, and prototypes a clinician can actually inspect.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">Medical NLP</span>
+            <h3>Notes, not just tables</h3>
+            <p>Fine-tune open-source models to summarize unstructured clinical notes, extract themes, strip PII, and keep pipelines HIPAA- and IRB-safe.</p>
+          </article>
+          <article class="card">
+            <span class="tag">EHR models</span>
+            <h3>Rare infections</h3>
+            <p>Validated models on 11,000+ multi-site encounters for unusual fungal infections and tuberculosis. Report calibration, sensitivity limits, and site-shift risk.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Neuro + wearables</span>
+            <h3>PTSD and movement</h3>
+            <p>Interpretable deep models on resting-state fMRI for PTSD vs. post-concussive syndrome, plus wearable activity work with Mayo Clinic collaborators.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <h2>Research</h2>
+        <p class="intro">Current threads. Methods have to be reproducible, and claims have to match what retrospective data can support.</p>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">2022 – present</span>
+            <h3>Clinical ML &amp; generative AI</h3>
+            <p>Research assistant at Auburn with Mayo Clinic collaboration. HIPAA-compliant note summarization, rare-infection EHR models, SHAP/ablation with clinician review, and ICU time-series / activity pipelines.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Foundation models</span>
+            <h3>Inspectable clinical text</h3>
+            <p>Prompt design and fine-tuning of open-source LLMs for rare-disease notes. Automated PII removal so note models can run under institutional constraints.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Earlier</span>
+            <h3>Biomedical NLP</h3>
+            <p>At Iran University of Science and Technology: biomedical relation extraction and knowledge-graph construction from scientific text, plus cleaning and deployment pipelines.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap">
+        <h2>Publications</h2>
+        <p class="intro">Selected papers and manuscripts. Status follows the current CV.</p>
+
+        <article class="pub">
+          <p><strong>Joghataee, M.</strong> et al. Channel-Recalibrated Temporal Deep Learning for Interpretable Classification of PTSD and Post-Concussive Syndrome Using Resting-State fMRI.</p>
+          <p class="venue"><em>Journal of the American Medical Informatics Association (JAMIA)</em> — <span class="badge">Under review, 2026</span></p>
+        </article>
+        <article class="pub">
+          <p><strong>Joghataee, M.</strong> et al. Machine Learning Approaches to Identify Rare and Atypical Infections in Hospitalized Patients.</p>
+          <p class="venue"><em>International Journal of Medical Informatics</em>, 2026.</p>
+        </article>
+        <article class="pub">
+          <p>Tekin, A., <strong>Joghataee, M.</strong>, Rovati, L., Truong, H. H., Castillo-Zambrano, C., et al. Development and validation of a preliminary multivariable diagnostic model for identifying unusual infections in hospitalized patients.</p>
+          <p class="venue"><em>Biomolecules and Biomedicine</em>, 2024. DOI: <a href="https://doi.org/10.17305/bb.2024.10447" target="_blank" rel="noopener">10.17305/bb.2024.10447</a></p>
+        </article>
+        <article class="pub">
+          <p>History of Multiple Concussions Associated with Impaired Perceptual Decision-Making Metrics Identified by Both Machine Learning and Statistical Regression Methods.</p>
+          <p class="venue"><em>PLOS One</em>, 2026.</p>
+        </article>
+        <article class="pub">
+          <p>Multimodal Approaches for Classifying PTSD and PCS-PTSD from Resting-State fMRI: Deep Learning on Time-Series and Interpretable Feature-Based Models.</p>
+          <p class="venue"><em>Pre-ICIS SIGDSA Symposium Proceedings</em>, 2025.</p>
+        </article>
+        <article class="pub">
+          <p>Predicting PTSD Severity in Veterans: An Explainable fMRI-Based Deep Learning Approach.</p>
+          <p class="venue"><em>Pre-ICIS SIGDSA Symposium Proceedings</em>, 2025.</p>
+        </article>
+        <article class="pub">
+          <p>Development of a Body Movement Classification Algorithm Using Wearable Accelerometers: A Pilot Study.</p>
+          <p class="venue"><em>AMIA</em>, 2024.</p>
+        </article>
+        <article class="pub">
+          <p>Modeling Long COVID Disease Network in Pediatric Population.</p>
+          <p class="venue"><em>AMCIS TREOs</em>, 2023.</p>
+        </article>
+        <article class="pub">
+          <p>AI Models for Rare Infectious Disease Detection.</p>
+          <p class="venue"><em>Decision Sciences Institute</em>, 2023.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="life">
+      <div class="wrap">
+        <h2>Life outside the lab</h2>
+        <p class="intro">
+          When I am not training models, I am usually lifting, out on a run around Auburn, or negotiating furniture rights with my cat.
+          Drop your photos into the <code>photos/</code> folder using the filenames below and they appear automatically.
+        </p>
+        <div class="gallery">
+          <div class="shot tall">
+            <img src="photos/cat-1.jpg" alt="The cat, mid-scheme" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="ph2" style="display:none">photos/cat-1.jpg<br />hero cat photo</div>
+            <p class="caption">Chief of household operations. Accepts tribute in the form of cardboard boxes.</p>
+          </div>
+          <div class="shot">
+            <img src="photos/run.jpg" alt="Running" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="ph2" style="display:none">photos/run.jpg</div>
+            <p class="caption">Running — the only optimizer that does not overfit if you just keep showing up.</p>
+          </div>
+          <div class="shot">
+            <img src="photos/gym.jpg" alt="Working out" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="ph2" style="display:none">photos/gym.jpg</div>
+            <p class="caption">Lifting. Progressive overload: the one training loop I trust.</p>
+          </div>
+          <div class="shot">
+            <img src="photos/cat-2.jpg" alt="More cat" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="ph2" style="display:none">photos/cat-2.jpg</div>
+            <p class="caption">Same cat, different crime. Name and extra stories go here once you send them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="intro">
+          Department of Computer Science and Software Engineering<br />
+          Auburn University, Auburn, Alabama
+        </p>
+        <div class="chips">
+          <a class="chip" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
+          <a class="chip" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">linkedin.com/in/mohammad-joghataee</a>
+          <a class="chip" href="cv.pdf">Download CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p>© <span id="y"></span> Mohammad Joghataee</p>
+      <p>Simple static site · GitHub Pages + a .me domain</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
