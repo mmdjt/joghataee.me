@@ -4,412 +4,381 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohammad Joghataee</title>
-  <meta name="description" content="Mohammad Joghataee — Ph.D. candidate at Auburn University. Medical NLP, EHR models for rare infections, PTSD neuroimaging." />
+  <meta name="description" content="Mohammad Joghataee is a researcher in healthcare analytics at Auburn University, working on EHR data, wearable sensors, and neuroimaging." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #09090b;
-      --panel: #111114;
-      --ink: #f4f4f5;
-      --dim: #a1a1aa;
-      --line: rgba(255,255,255,.08);
-      --acid: #d6ff3c;
-      --acid-2: #9ae600;
+      --bg: #f3eee6;
+      --ink: #1c1916;
+      --mute: #6b645b;
+      --line: #ddd4c8;
+      --card: rgba(255,252,247,.72);
+      --accent: #7a3b2e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-family: Outfit, system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.55;
+      line-height: 1.6;
       overflow-x: hidden;
     }
-    body::before {
-      content: "";
-      pointer-events: none;
-      position: fixed; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+    .blob {
+      position: fixed; z-index: 0; pointer-events: none; filter: blur(70px);
+      opacity: .55; border-radius: 50%;
+      animation: drift 22s ease-in-out infinite;
     }
-    .spot {
-      position: fixed; width: 640px; height: 640px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(214,255,60,.12), transparent 65%);
-      pointer-events: none; z-index: 0; transform: translate(-50%, -50%);
-      mix-blend-mode: screen;
+    .b1 { width: 420px; height: 420px; background: #e8c9b4; top: -80px; right: 8%; }
+    .b2 { width: 360px; height: 360px; background: #c9d4c2; bottom: 10%; left: -80px; animation-delay: -8s; }
+    .b3 { width: 280px; height: 280px; background: #d7c6b0; top: 45%; right: -60px; animation-delay: -14s; }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(24px, -30px) scale(1.08); }
     }
-    a { color: var(--acid); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     img { max-width: 100%; display: block; }
-    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .wrap { width: min(980px, calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
 
     header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(9,9,11,.72);
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .logo {
-      font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -.04em;
-      color: var(--ink); text-decoration: none; font-size: 1rem;
+    .nav {
+      display: flex; align-items: baseline; justify-content: space-between;
+      padding: 18px 0; gap: 20px;
     }
-    .logo span { color: var(--acid); }
-    nav { display: flex; gap: 22px; }
-    nav a { color: var(--dim); font-size: .9rem; font-weight: 500; text-decoration: none; }
+    .mark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem; font-weight: 600; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    nav a { color: var(--mute); font-size: .88rem; font-weight: 500; text-decoration: none; }
     nav a:hover { color: var(--ink); }
 
-    .hero { padding: 72px 0 28px; }
-    .meta {
-      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
-      color: var(--dim); font-size: .86rem; margin-bottom: 22px;
-    }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 12px var(--acid); }
+    .hero { padding: 88px 0 48px; }
     h1 {
-      font-family: Syne, sans-serif;
-      font-weight: 800;
-      font-size: clamp(3rem, 10vw, 7.2rem);
-      line-height: .86;
-      letter-spacing: -.06em;
-      text-transform: uppercase;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      line-height: .92;
+      letter-spacing: -0.03em;
     }
-    h1 em {
-      font-style: normal;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--acid);
-    }
-    .sub {
+    .hero p {
       margin-top: 28px;
-      max-width: 36rem;
-      font-size: 1.15rem;
-      color: #d4d4d8;
+      max-width: 38rem;
+      font-size: 1.18rem;
+      font-weight: 300;
+      color: #3f3a35;
     }
-    .row {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .chip {
+      display: inline-block;
+      padding: 8px 14px;
       border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--ink);
-      padding: 10px 14px;
       border-radius: 999px;
-      font-size: .88rem;
-      font-weight: 600;
+      color: var(--ink);
+      font-size: .86rem;
       text-decoration: none;
+      background: var(--card);
     }
-    .btn:hover { border-color: var(--acid); color: var(--acid); text-decoration: none; }
-    .btn.solid { background: var(--acid); color: #111; border-color: var(--acid); }
-    .btn.solid:hover { background: #ecff7a; color: #111; }
+    .chip:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-    .ticker {
-      border-block: 1px solid var(--line);
-      margin: 36px 0 8px;
-      overflow: hidden;
-      white-space: nowrap;
+    section { padding: 28px 0 56px; }
+    .kicker {
+      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 10px;
     }
-    .ticker-track {
-      display: inline-flex; gap: 36px; padding: 12px 0;
-      animation: slide 28s linear infinite;
-      color: var(--dim); font-family: Syne, sans-serif; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase; font-size: .78rem;
-    }
-    @keyframes slide {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    section { padding: 56px 0; }
     h2 {
-      font-family: Syne, sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      letter-spacing: -.04em;
-      margin-bottom: 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 500;
+      margin-bottom: 12px;
     }
-    .lead { color: var(--dim); max-width: 46rem; margin-bottom: 28px; }
+    .prose { color: #4a453f; max-width: 42rem; }
 
-    .bento {
+    .chapter {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 12px;
+      grid-template-columns: 88px 1fr;
+      gap: 8px 28px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
     }
-    .tile {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px;
-      transition: transform .25s ease, border-color .25s ease;
+    .idx {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem; color: var(--accent); line-height: 1;
     }
-    .tile:hover { transform: translateY(-4px); border-color: rgba(214,255,60,.35); }
-    .tile.wide { grid-column: 1 / -1; }
-    .tile h3 { font-family: Syne, sans-serif; font-size: 1.25rem; margin-bottom: 8px; }
-    .num {
-      font-family: Syne, sans-serif; color: var(--acid);
-      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    .chapter h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.7rem; font-weight: 500; margin-bottom: 8px;
     }
+    .papers { margin-top: 14px; }
+    .papers li { list-style: none; padding: 8px 0; color: #3f3a35; }
+    .papers small { display: block; color: var(--mute); font-size: .86rem; }
 
-    .pubs { display: grid; gap: 0; }
-    .pub {
+    .award {
       display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 18px;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      align-items: center;
       padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      align-items: start;
+      border-top: 1px solid var(--line);
     }
-    .year { font-family: Syne, sans-serif; color: var(--acid); font-weight: 700; }
-    .venue { color: var(--dim); font-size: .9rem; margin-top: 4px; }
+    .award.plain { grid-template-columns: 1fr; }
+    .frame {
+      width: 140px; height: 140px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #e7dfd3;
+      border: 1px solid var(--line);
+    }
+    .frame img { width: 100%; height: 100%; object-fit: cover; }
+    .award h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 4px; }
+    .award p { color: var(--mute); font-size: .92rem; }
 
-    .shots {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr .7fr;
-      grid-template-rows: 220px 220px;
-      gap: 12px;
+    .svc { columns: 2; column-gap: 36px; }
+    .svc li {
+      list-style: none; break-inside: avoid;
+      padding: 8px 0; border-bottom: 1px solid var(--line); color: #3f3a35;
     }
-    .shot {
-      position: relative;
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-auto-rows: 210px;
+      gap: 10px;
+    }
+    .pic {
       border-radius: 18px;
       overflow: hidden;
+      background: #e7dfd3;
       border: 1px solid var(--line);
-      background: #18181b;
     }
-    .shot.big { grid-row: span 2; }
-    .shot img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05); }
-    .shot .ph {
-      width: 100%; height: 100%;
-      display: grid; place-items: center;
-      color: #71717a; font-size: .85rem; text-align: center; padding: 16px;
-    }
-    .shot figcaption {
-      position: absolute; left: 12px; bottom: 12px;
-      background: rgba(0,0,0,.62);
-      backdrop-filter: blur(8px);
-      padding: 6px 10px; border-radius: 999px; font-size: .78rem;
-    }
+    .pic.span { grid-row: span 2; }
+    .pic img { width: 100%; height: 100%; object-fit: cover; }
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 28px 0 56px;
-      color: var(--dim); font-size: .88rem;
+      padding: 28px 0 60px;
+      color: var(--mute);
+      font-size: .9rem;
     }
-    .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-    @media (max-width: 800px) {
+    @media (max-width: 740px) {
       nav { display: none; }
-      .bento, .shots, .pub { grid-template-columns: 1fr; }
-      .shot, .shot.big { grid-row: auto; min-height: 220px; }
-      h1 { font-size: 3.1rem; }
+      .chapter, .award, .mosaic { grid-template-columns: 1fr; }
+      .pic.span { grid-row: auto; min-height: 240px; }
+      .svc { columns: 1; }
+      .hero { padding-top: 56px; }
     }
   </style>
 </head>
 <body>
-  <div class="spot" id="spot"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
   <header>
     <div class="wrap nav">
-      <a class="logo" href="#top">MJ<span>.</span></a>
+      <a class="mark" href="#top">Mohammad Joghataee</a>
       <nav>
-        <a href="#work">Work</a>
-        <a href="#papers">Papers</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#honors">Honors</a>
+        <a href="#service">Service</a>
         <a href="#life">Life</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero wrap">
-      <div class="meta">
-        <span class="dot"></span>
-        Auburn, AL · Ph.D. candidate
-      </div>
-      <h1>Mohammad<br><em>Joghataee</em></h1>
-      <p class="sub">
-        Medical NLP and machine learning for rare infections and PTSD.
-        Research assistant at Auburn University, collaborating with Mayo Clinic.
+      <h1>Mohammad<br>Joghataee</h1>
+      <p>
+        Researcher in healthcare analytics. Ph.D. candidate in Computer Science
+        at Auburn University. I study electronic health records, clinical text,
+        wearable sensors, and neuroimaging, with a focus on methods that can
+        inform care.
       </p>
-      <div class="row">
-        <a class="btn solid" href="mailto:mzj0081@auburn.edu">Email</a>
-        <a class="btn" href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://orcid.org/0000-0002-8849-4695" target="_blank" rel="noopener">ORCID</a>
-        <a class="btn" href="cv.pdf">CV</a>
+      <div class="links">
+        <a class="chip" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
+        <a class="chip" href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a class="chip" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chip" href="https://orcid.org/0000-0002-8849-4695" target="_blank" rel="noopener">ORCID</a>
+        <a class="chip" href="cv.pdf">CV</a>
       </div>
     </section>
 
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>Medical NLP</span><span>Clinical notes</span><span>Foundation models</span>
-        <span>Rare infections</span><span>EHR</span><span>PTSD · fMRI</span>
-        <span>SHAP</span><span>HIPAA pipelines</span><span>Mayo Clinic collab</span>
-        <span>Medical NLP</span><span>Clinical notes</span><span>Foundation models</span>
-        <span>Rare infections</span><span>EHR</span><span>PTSD · fMRI</span>
-        <span>SHAP</span><span>HIPAA pipelines</span><span>Mayo Clinic collab</span>
-      </div>
-    </div>
-
-    <section id="work">
+    <section id="about">
       <div class="wrap">
-        <h2>Work</h2>
-        <p class="lead">
-          CS Ph.D. at Auburn with Ashish Gupta and Xiao Qin.
-          I train models on hospital notes and EHR data, then check whether a clinician can actually use the output.
+        <p class="kicker">About</p>
+        <h2>About</h2>
+        <p class="prose">
+          My research is in healthcare analytics. I build and evaluate machine learning
+          models on clinical data — structured EHR variables, unstructured notes,
+          wearable sensor streams, and brain imaging. I am advised by Ashish Gupta
+          and Xiao Qin in the Department of Computer Science and Software Engineering.
         </p>
-        <div class="bento">
-          <article class="tile">
-            <div class="num">01 — Notes</div>
-            <h3>Clinical NLP</h3>
-            <p>Fine-tune open-source models to summarize unstructured notes and pull themes from rare-disease records. PII stripping so the pipeline can run under HIPAA / IRB rules.</p>
-          </article>
-          <article class="tile">
-            <div class="num">02 — EHR</div>
-            <h3>Rare infections</h3>
-            <p>Models on 11,000+ multi-site encounters for unusual fungal infections and tuberculosis. Calibration and site-shift reported; not framed as a screening product.</p>
-          </article>
-          <article class="tile wide">
-            <div class="num">03 — Brain + movement</div>
-            <h3>PTSD fMRI and wearables</h3>
-            <p>Interpretable models on resting-state fMRI for PTSD vs. post-concussive syndrome. Separate thread with Mayo on ICU time-series and accelerometer activity labels.</p>
-          </article>
-        </div>
       </div>
     </section>
 
-    <section id="papers">
+    <section id="research">
       <div class="wrap">
-        <h2>Papers</h2>
-        <p class="lead">
-          Full list on
-          <a href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
-        </p>
-        <div class="pubs">
-          <article class="pub">
-            <div class="year">2026</div>
-            <div>
-              <p>Machine learning approaches to identify rare fungal and tuberculous infections in hospitalized patients. <em>Joghataee, Tekin, Gupta, Herasevich, Gajic, Qin.</em></p>
-              <p class="venue">International Journal of Medical Informatics</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2026</div>
-            <div>
-              <p>Channel-recalibrated temporal deep learning for interpretable classification of PTSD and post-concussive syndrome using resting-state fMRI.</p>
-              <p class="venue">JAMIA — under review</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2026</div>
-            <div>
-              <p>History of multiple concussions associated with impaired perceptual decision-making metrics identified by both machine learning and statistical regression methods.</p>
-              <p class="venue">PLOS One</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2025</div>
-            <div>
-              <p>Multimodal approaches for classifying PTSD and PCS-PTSD from resting-state fMRI.</p>
-              <p class="venue">Pre-ICIS SIGDSA</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2025</div>
-            <div>
-              <p>Predicting PTSD severity in veterans: an explainable fMRI-based machine learning approach. <em>Naeimaeimousavi, Gupta, Joghataee, Deshpande.</em></p>
-              <p class="venue">Pre-ICIS SIGDSA</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2024</div>
-            <div>
-              <p>Development and validation of a preliminary multivariable diagnostic model for identifying unusual infections in hospitalized patients. <em>Tekin, Joghataee, et al.</em></p>
-              <p class="venue">Biomolecules and Biomedicine · <a href="https://doi.org/10.17305/bb.2024.10447">doi</a></p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2024</div>
-            <div>
-              <p>Development of a body movement classification algorithm using wearable accelerometers: a pilot study.</p>
-              <p class="venue">AMIA</p>
-            </div>
-          </article>
-          <article class="pub">
-            <div class="year">2023</div>
-            <div>
-              <p>Modeling long COVID disease network in pediatric population.</p>
-              <p class="venue">AMCIS TREO</p>
-            </div>
-          </article>
-        </div>
+        <p class="kicker">Research</p>
+        <h2>Three lines of work.</h2>
+
+        <article class="chapter">
+          <div class="idx">01</div>
+          <div>
+            <h3>EHR data, structured and unstructured</h3>
+            <p class="prose">
+              Early identification of rare fungal infections and tuberculosis from
+              hospital records — labs, vitals, and notes. The aim is to surface an
+              unusual infection while there is still time to act, without treating a
+              retrospective model as a screening program.
+            </p>
+            <ul class="papers">
+              <li>
+                Machine learning approaches to identify rare fungal and tuberculous infections in hospitalized patients.
+                <small>International Journal of Medical Informatics, 2026</small>
+              </li>
+              <li>
+                Development and validation of a preliminary multivariable diagnostic model for identifying unusual infections in hospitalized patients.
+                <small>Biomolecules and Biomedicine, 2024</small>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <div class="idx">02</div>
+          <div>
+            <h3>Sensors and wearable devices</h3>
+            <p class="prose">
+              Movement and decision-making from devices people already wear.
+              Accelerometers for body-movement classification, and methods that
+              connect concussion history to perceptual decision-making.
+            </p>
+            <ul class="papers">
+              <li>
+                History of multiple concussions associated with impaired perceptual decision-making metrics identified by both machine learning and statistical regression methods.
+                <small>PLOS One, 2026</small>
+              </li>
+              <li>
+                Development of a body movement classification algorithm using wearable accelerometers: a pilot study.
+                <small>AMIA, 2024</small>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <div class="idx">03</div>
+          <div>
+            <h3>Time series and neuroscience</h3>
+            <p class="prose">
+              Resting-state fMRI for PTSD and post-concussive syndrome.
+              Temporal deep models and explainable feature-based models so the
+              result can be read next to the circuit, not only next to an AUC.
+            </p>
+            <ul class="papers">
+              <li>
+                Channel-recalibrated temporal deep learning for interpretable classification of PTSD and post-concussive syndrome using resting-state fMRI.
+                <small>JAMIA, under review</small>
+              </li>
+              <li>
+                Multimodal approaches for classifying PTSD and PCS-PTSD from resting-state fMRI.
+                <small>Pre-ICIS SIGDSA, 2025</small>
+              </li>
+              <li>
+                Predicting PTSD severity in veterans: an explainable fMRI-based machine learning approach.
+                <small>Pre-ICIS SIGDSA, 2025</small>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="honors">
+      <div class="wrap">
+        <p class="kicker">Honors</p>
+        <h2>Awards.</h2>
+
+        <article class="award">
+          <div class="frame">
+            <img src="photos/award-gavin.jpg" alt="Charles E. Gavin Fellowship" />
+          </div>
+          <div>
+            <h3>Charles E. Gavin Fellowship</h3>
+            <p>Auburn University · $6,000</p>
+          </div>
+        </article>
+
+        <article class="award">
+          <div class="frame">
+            <img src="photos/award-tiger.jpg" alt="Tiger Transit Analysis award" />
+          </div>
+          <div>
+            <h3>Best project, Tiger Transit Analysis</h3>
+            <p>Harbert College of Business, Auburn University · $1,500</p>
+          </div>
+        </article>
+
+        <article class="award">
+          <div class="frame">
+            <img src="photos/award-graduate.jpg" alt="Outstanding departmental graduate award" />
+          </div>
+          <div>
+            <h3>Outstanding Departmental Annual Graduate Award</h3>
+            <p>Spring 2025 · $2,000</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="wrap">
+        <p class="kicker">Service</p>
+        <h2>Editing, reviewing, judging.</h2>
+        <ul class="svc">
+          <li>Review coordinator, AMCIS 2025, Montreal</li>
+          <li>Managing editor, Decision Sciences Journal of Innovative Education, 2025</li>
+          <li>Reviewer, European Conference on Information Systems, 2025</li>
+          <li>Reviewer, Journal of Business Analytics, 2024</li>
+          <li>Reviewer, SIGDSA 2026</li>
+          <li>Reviewer, Information Systems Frontiers, 2024</li>
+          <li>Judge, Alabama Science and Engineering Fair, 2023</li>
+        </ul>
       </div>
     </section>
 
     <section id="life">
       <div class="wrap">
-        <h2>Off campus</h2>
-        <p class="lead">I run. I lift. I live with a cat who treats the desk as shared property. Add photos as <code>photos/me.jpg</code>, <code>cat-1.jpg</code>, <code>run.jpg</code>, <code>gym.jpg</code>.</p>
-        <div class="shots">
-          <figure class="shot big">
-            <img src="photos/cat-1.jpg" alt="Cat" onerror="this.remove(); this.parentElement.querySelector('.ph').hidden=false;" />
-            <div class="ph" hidden>photos/cat-1.jpg</div>
-            <figcaption>The cat</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="photos/run.jpg" alt="Running" onerror="this.remove(); this.parentElement.querySelector('.ph').hidden=false;" />
-            <div class="ph" hidden>photos/run.jpg</div>
-            <figcaption>Run</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="photos/gym.jpg" alt="Gym" onerror="this.remove(); this.parentElement.querySelector('.ph').hidden=false;" />
-            <div class="ph" hidden>photos/gym.jpg</div>
-            <figcaption>Gym</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="photos/me.jpg" alt="Portrait" onerror="this.remove(); this.parentElement.querySelector('.ph').hidden=false;" />
-            <div class="ph" hidden>photos/me.jpg</div>
-            <figcaption>Me</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="photos/cat-2.jpg" alt="Cat again" onerror="this.remove(); this.parentElement.querySelector('.ph').hidden=false;" />
-            <div class="ph" hidden>photos/cat-2.jpg</div>
-            <figcaption>Also the cat</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <h2>Contact</h2>
-        <p class="lead">
-          Department of Computer Science and Software Engineering<br />
-          Auburn University
-        </p>
-        <div class="row">
-          <a class="btn solid" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-          <a class="btn" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
+        <p class="kicker">Life</p>
+        <h2>Outside the lab.</h2>
+        <p class="prose" style="margin-bottom:22px">I like lifting, running, camping, cooking, and photography. Auburn, Alabama.</p>
+        <div class="mosaic">
+          <div class="pic span"><img src="photos/cat-1.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/lift.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/run.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/camp.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/cook.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/photo.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/me.jpg" alt="" /></div>
+          <div class="pic"><img src="photos/cat-2.jpg" alt="" /></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap foot">
-      <p>© <span id="y"></span> Mohammad Joghataee</p>
-      <p>mmdjt.github.io/joghataee.me</p>
-    </div>
+    <div class="wrap">Mohammad Joghataee · Auburn University</div>
   </footer>
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-    const spot = document.getElementById("spot");
-    window.addEventListener("pointermove", (e) => {
-      spot.style.left = e.clientX + "px";
-      spot.style.top = e.clientY + "px";
-    }, { passive: true });
-  </script>
 </body>
 </html>
