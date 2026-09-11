@@ -62,6 +62,20 @@
     nav a:hover { color: var(--ink); }
 
     .hero { padding: 88px 0 48px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .portrait {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #e7dfd3;
+    }
+    .portrait a { display: block; line-height: 0; }
+    .portrait img { width: 100%; height: auto; display: block; }
     h1 {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-weight: 500;
@@ -180,6 +194,7 @@
       .pic.span { grid-column: auto; }
       .svc { columns: 1; }
       .hero { padding-top: 56px; }
+      .hero-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -203,19 +218,28 @@
 
   <main id="top">
     <section class="hero wrap">
-      <h1>Mohammad<br>Joghataee</h1>
-      <p>
-        Researcher in healthcare analytics. Ph.D. candidate in Computer Science
-        at Auburn University. I study electronic health records, clinical text,
-        wearable sensors, and neuroimaging, with a focus on methods that can
-        inform care.
-      </p>
-      <div class="links">
-        <a class="chip" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
-        <a class="chip" href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-        <a class="chip" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="chip" href="https://orcid.org/0000-0002-8849-4695" target="_blank" rel="noopener">ORCID</a>
-        <a class="chip" href="cv.pdf">CV</a>
+      <div class="hero-grid">
+        <div>
+          <h1>Mohammad<br>Joghataee</h1>
+          <p>
+            Researcher in healthcare analytics. Ph.D. candidate in Computer Science
+            at Auburn University. I study electronic health records, clinical text,
+            wearable sensors, and neuroimaging, with a focus on methods that can
+            inform care.
+          </p>
+          <div class="links">
+            <a class="chip" href="mailto:mzj0081@auburn.edu">mzj0081@auburn.edu</a>
+            <a class="chip" href="https://scholar.google.com/citations?user=TDjQEWoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+            <a class="chip" href="https://linkedin.com/in/mohammad-joghataee" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="chip" href="https://orcid.org/0000-0002-8849-4695" target="_blank" rel="noopener">ORCID</a>
+            <a class="chip" href="cv.pdf">CV</a>
+          </div>
+        </div>
+        <div class="portrait">
+          <a href="photos/me.jpg" target="_blank" rel="noopener">
+            <img src="photos/me.jpg" alt="Mohammad Joghataee" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -368,7 +392,7 @@
       <div class="wrap">
         <p class="kicker">Life</p>
         <h2>Outside the lab.</h2>
-        <p class="prose" style="margin-bottom:22px">I like lifting, running, camping, cooking, and photography and I love my cat! His name is Mr. Leon. .</p>
+        <p class="prose" style="margin-bottom:22px">I like lifting, running, camping, cooking, and photography. Auburn, Alabama.</p>
         <div class="mosaic">
           <div class="pic span"><a href="photos/cat-1.jpg" target="_blank" rel="noopener"><img src="photos/cat-1.jpg" alt="" /></a></div>
           <div class="pic"><a href="photos/lift.jpg" target="_blank" rel="noopener"><img src="photos/lift.jpg" alt="" /></a></div>
@@ -376,7 +400,6 @@
           <div class="pic"><a href="photos/camp.jpg" target="_blank" rel="noopener"><img src="photos/camp.jpg" alt="" /></a></div>
           <div class="pic"><a href="photos/cook.jpg" target="_blank" rel="noopener"><img src="photos/cook.jpg" alt="" /></a></div>
           <div class="pic"><a href="photos/photo.jpg" target="_blank" rel="noopener"><img src="photos/photo.jpg" alt="" /></a></div>
-          <div class="pic"><a href="photos/me.jpg" target="_blank" rel="noopener"><img src="photos/me.jpg" alt="" /></a></div>
           <div class="pic"><a href="photos/cat-2.jpg" target="_blank" rel="noopener"><img src="photos/cat-2.jpg" alt="" /></a></div>
         </div>
       </div>
