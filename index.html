@@ -137,7 +137,8 @@
       background: #e7dfd3;
       border: 1px solid var(--line);
     }
-    .frame img { width: 100%; height: 100%; object-fit: cover; }
+    .frame a, .pic a { display: block; width: 100%; height: 100%; }
+    .frame img, .pic img { width: 100%; height: 100%; object-fit: contain; object-position: center; background: #efe8dc; }
     .award h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 4px; }
     .award p { color: var(--mute); font-size: .92rem; }
 
@@ -160,7 +161,7 @@
       border: 1px solid var(--line);
     }
     .pic.span { grid-row: span 2; }
-    .pic img { width: 100%; height: 100%; object-fit: cover; }
+    
 
     footer {
       border-top: 1px solid var(--line);
@@ -310,10 +311,7 @@
         <p class="kicker">Honors</p>
         <h2>Awards.</h2>
 
-        <article class="award">
-          <div class="frame">
-            <img src="photos/award-gavin.jpg" alt="Charles E. Gavin Fellowship" />
-          </div>
+        <article class="award plain">
           <div>
             <h3>Charles E. Gavin Fellowship</h3>
             <p>Auburn University · $6,000</p>
@@ -322,7 +320,9 @@
 
         <article class="award">
           <div class="frame">
-            <img src="photos/award-tiger.jpg" alt="Tiger Transit Analysis award" />
+            <a href="photos/award-tiger.jpg" target="_blank" rel="noopener">
+              <img src="photos/award-tiger.jpg" alt="Tiger Transit Analysis award" />
+            </a>
           </div>
           <div>
             <h3>Best project, Tiger Transit Analysis</h3>
@@ -332,7 +332,9 @@
 
         <article class="award">
           <div class="frame">
-            <img src="photos/award-graduate.jpg" alt="Outstanding departmental graduate award" />
+            <a href="photos/award-graduate.jpg" target="_blank" rel="noopener">
+              <img src="photos/award-graduate.jpg" alt="Outstanding departmental graduate award" />
+            </a>
           </div>
           <div>
             <h3>Outstanding Departmental Annual Graduate Award</h3>
@@ -364,14 +366,14 @@
         <h2>Outside the lab.</h2>
         <p class="prose" style="margin-bottom:22px">I like lifting, running, camping, cooking, and photography. Auburn, Alabama.</p>
         <div class="mosaic">
-          <div class="pic span"><img src="photos/cat-1.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/lift.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/run.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/camp.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/cook.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/photo.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/me.jpg" alt="" /></div>
-          <div class="pic"><img src="photos/cat-2.jpg" alt="" /></div>
+          <div class="pic span"><a href="photos/cat-1.jpg" target="_blank" rel="noopener"><img src="photos/cat-1.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/lift.jpg" target="_blank" rel="noopener"><img src="photos/lift.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/run.jpg" target="_blank" rel="noopener"><img src="photos/run.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/camp.jpg" target="_blank" rel="noopener"><img src="photos/camp.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/cook.jpg" target="_blank" rel="noopener"><img src="photos/cook.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/photo.jpg" target="_blank" rel="noopener"><img src="photos/photo.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/me.jpg" target="_blank" rel="noopener"><img src="photos/me.jpg" alt="" /></a></div>
+          <div class="pic"><a href="photos/cat-2.jpg" target="_blank" rel="noopener"><img src="photos/cat-2.jpg" alt="" /></a></div>
         </div>
       </div>
     </section>
